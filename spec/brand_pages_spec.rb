@@ -12,7 +12,13 @@ describe('the brand route', :type => :feature) do
     visit '/brands'
     fill_in 'name', :with => "Molly's Moccasins"
     check 'store_ids[]'
-    click_button 'Go'
+    click_button 'Add Brand'
     expect(page).to have_content("Molly's Moccasins")
+  end
+
+  it "allows a user to edit a brand" do
+    store = Store.create({:name => "Shoe Crazy"})
+    brand = Brand.create({:name => "Molly's Moccasins"})
+
   end
 end

@@ -12,7 +12,7 @@ describe('the store route', :type => :feature) do
     visit '/stores'
     fill_in 'name', :with => "Shoe Crazy"
     check "brand_ids[]"
-    click_button 'Go'
+    click_button 'Add Store'
     expect(page).to have_content("Shoe Crazy")
   end
 end
