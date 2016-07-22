@@ -38,3 +38,23 @@ get('/brands/:id') do
   @stores = Store.all()
   erb(:brand)
 end
+
+post('/stores/new') do
+  name = params['name']
+  city = params['city']
+  state = params['state']
+  @new_store = Store.new({:name => name, :city => city, :state => state})
+  @stores = Store.all()
+  if @new_store.save()
+    redirect("/stores/".concat(@new_store.id().to_s()))
+  else
+    erb(:errors)
+  end
+end
+
+get('/stores/:id') do
+  @store = Store.find(params.fetch('id').to_i())
+  @stores = Store.all()
+  @brands = Brand.all()
+  erb(:store)
+end

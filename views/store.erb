@@ -1,0 +1,14 @@
+<h1> <%= @store.name %> </h1>
+
+<h2> Brands that this store carries: </h2>
+  <% if @store.brands().any?() %>
+  <ul>
+  <% @store.brands.each do |brand| %>
+  <li><%= brand.name() %></li>
+  <% end %>
+  </ul>
+  <% else %>
+  <p> This store does not carry any brands yet.</p>
+  <% end %>
+
+<a class="btn btn-default btn-lg" href="/stores">Back to Stores</a>
