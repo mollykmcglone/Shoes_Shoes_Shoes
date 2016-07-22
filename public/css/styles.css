@@ -1,7 +1,10 @@
 .jumbotron {
   text-align: center;
-  background-color: #ff9933;
-  color: #ffffff;
+  background-color: none;
+}
+
+.jumbotron h1 {
+  color: #ff9933;
 }
 
 .row {

@@ -23,8 +23,10 @@ end
 
 post('/brands/new') do
   name = params['name']
-  @new_brand = Brand.new({:name => name})
+  store_ids = params['store_ids']
+  @new_brand = Brand.new({:name => name, :store_ids => store_ids})
   @brands = Brand.all()
+  @stores = Store.all()
   if @new_brand.save()
     redirect("/brands/".concat(@new_brand.id().to_s()))
   else
@@ -43,8 +45,10 @@ post('/stores/new') do
   name = params['name']
   city = params['city']
   state = params['state']
-  @new_store = Store.new({:name => name, :city => city, :state => state})
+  brand_ids = params['brand_ids']
+  @new_store = Store.new({:name => name, :city => city, :state => state, :brand_ids => brand_ids})
   @stores = Store.all()
+  @brands = Brand.all()
   if @new_store.save()
     redirect("/stores/".concat(@new_store.id().to_s()))
   else
