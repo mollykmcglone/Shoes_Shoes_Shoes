@@ -1,0 +1,16 @@
+<form action="/brands/<%= @brand.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <h2>Edit this Brand:</h2>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= @brand.name %>">
+  </div>
+  <div class="form-group">
+    <label for="store_ids[]">Which stores carry this brand?</label><br>
+    <% @stores.each() do |store| %>
+    <input type="checkbox" name = "store_ids[]" value="<%= store.id()%>"> <%= store.name() %>, <%= store.city() %>, <%= store.state() %><br>
+    <% end %>
+  </div>
+  <button type='submit'>Submit</button>
+</form>

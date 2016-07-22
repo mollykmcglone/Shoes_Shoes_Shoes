@@ -41,6 +41,20 @@ get('/brands/:id') do
   erb(:brand)
 end
 
+get('/brands/:id/edit') do
+  @brand = Brand.find(params.fetch('id').to_i())
+  @stores = Store.all()
+  erb(:brands_edit)
+end
+
+patch('/brands/:id') do
+  @brand = Brand.find(params.fetch('id').to_i())
+  name = params['name']
+  store_ids = params['store_ids']
+  @brand.update({:name => name, :store_ids => store_ids})
+  erb(:brand)
+end
+
 post('/stores/new') do
   name = params['name']
   city = params['city']

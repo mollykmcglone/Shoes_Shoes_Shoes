@@ -16,9 +16,14 @@ describe('the brand route', :type => :feature) do
     expect(page).to have_content("Molly's Moccasins")
   end
 
-  it "allows a user to edit a brand" do
+  it "allows a user to edit a brand's name" do
     store = Store.create({:name => "Shoe Crazy"})
     brand = Brand.create({:name => "Molly's Moccasins"})
-
+    visit '/brands'
+    click_link "Molly's Moccasins"
+    click_link "Edit Molly's Moccasins"
+    fill_in 'name', :with => "Miss Molly's Moccasins"
+    click_button 'Submit'
+    expect(page).to have_content("Miss Molly's Moccasins")
   end
 end
