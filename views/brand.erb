@@ -1,0 +1,14 @@
+<h1> <%= @brand.name %> </h1>
+
+<h2> Stores that carry this brand: </h2>
+  <% if @brand.stores().any?() %>
+  <ul>
+  <% @brand.stores.each do |store| %>
+  <li><%= store.name() %>, <%= store.city() %>, <%= store.state() %></li>
+  <% end %>
+  </ul>
+  <% else %>
+  <p> This brand is not currently carried by any stores </p>
+  <% end %>
+
+<a class="btn btn-default btn-lg" href="/brands">Back to Brands</a>

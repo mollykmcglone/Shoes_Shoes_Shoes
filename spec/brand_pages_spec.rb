@@ -6,4 +6,11 @@ describe('the brand route', :type => :feature) do
     click_link 'Go to Brands'
     expect(page).to have_content('Brands')
   end
+
+  it "allows a user to add a new brand" do
+    visit '/brands'
+    fill_in 'name', :with => "Molly's Moccasins"
+    click_button 'Go'
+    expect(page).to have_content("Molly's Moccasins")
+  end
 end
