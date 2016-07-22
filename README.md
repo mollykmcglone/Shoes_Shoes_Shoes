@@ -1,11 +1,12 @@
 # Shoes Shoes Shoes!
 
-#### A web app to practice databases with Active Record and Ruby.
+#### A web app to organize and display information about shoe stores and brands.
 
 #### By Molly McGlone, July 2016
 
 ## Description
 
+An Epicodus independent student project to practice a many-to-many database with Active Record and Ruby.
 * As a user, I want to be able to add, update, delete and list shoe stores.
 * As a user, I want to be able to add, update, delete, and list shoe brands.
 * As a user, I want to be able to add shoe brands to a store to show where they are sold.
@@ -15,7 +16,7 @@
 
 ## Setup/Installation Requirements
 
-* To replicate, clone this repository to your local hard drive using this link: https://github.com/mollykmcglone/shoes_shoes_shoes.git
+To replicate, clone this repository to your local hard drive using this link: https://github.com/mollykmcglone/shoes_shoes_shoes.git
 
 ###Set up Databases:
 ```
