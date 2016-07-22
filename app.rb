@@ -76,3 +76,19 @@ get('/stores/:id') do
   @brands = Brand.all()
   erb(:store)
 end
+
+get('/stores/:id/edit') do
+  @store = Store.find(params.fetch('id').to_i())
+  @brands = Brand.all()
+  erb(:stores_edit)
+end
+
+patch('/stores/:id') do
+  @store = Store.find(params.fetch('id').to_i())
+  name = params['name']
+  city = params['city']
+  state = params['state']
+  brand_ids = params['brand_ids']
+  @store.update({:name => name, :city => city, :state => state, :brand_ids => brand_ids})
+  erb(:store)
+end
