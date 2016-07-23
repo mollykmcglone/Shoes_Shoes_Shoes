@@ -19,6 +19,12 @@ h2 {
   color: #ff9933;
 }
 
+@media (max-width: 992px){
+  img {
+    display: none;
+  }
+}
+
 #black {
   color: black;
 }
