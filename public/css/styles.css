@@ -1,14 +1,29 @@
 .jumbotron {
   text-align: center;
-  background-color: none;
+  background-color: inherit;
 }
 
 .jumbotron h1 {
   color: #ff9933;
+    font-size: 7em;
 }
 
 h1 {
   color: #ff9933;
+  text-align: center;
+  font-size:8em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+.center {
+  text-align: center;
+}
+
+.first {
+  text-align: center;
 }
 
 .row {
@@ -19,4 +34,22 @@ h1 {
 .footer {
   text-align: center;
   margin-top: 4em;
+}
+
+.pages ul {
+  font-size: 1.5em;
+}
+
+.page-header {
+  font-size: 1.25em;
+}
+
+.title p {
+  text-align: center;
+  font-size: 2em;
+  font-style: italic;
+}
+
+.form-group {
+  font-size: 1.5em;
 }
