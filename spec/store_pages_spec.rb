@@ -38,4 +38,11 @@ describe('the store route', :type => :feature) do
     expect(page).to have_content("Shoe Crazy")
   end
 
+  it "allows a user to delete a store" do
+    store = Store.create({:name => "Shoe Crazy"})
+    visit '/stores'
+    click_link "Shoe Crazy"
+    click_button "Delete Shoe Crazy"
+    expect(page).to have_no_content("Shoe Crazy")
+  end
 end

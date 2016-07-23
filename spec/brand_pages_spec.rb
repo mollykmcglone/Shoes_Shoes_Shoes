@@ -37,4 +37,12 @@ describe('the brand route', :type => :feature) do
     click_button 'Submit'
     expect(page).to have_content("Molly's Moccasins")
   end
+
+  it "allows a user to delete a brand" do
+    brand = Brand.create({:name => "Molly's Moccasins"})
+    visit '/brands'
+    click_link "Molly's Moccasins"
+    click_button "Delete Molly's Moccasins"
+    expect(page).to have_no_content("Molly's Moccasins")
+  end
 end

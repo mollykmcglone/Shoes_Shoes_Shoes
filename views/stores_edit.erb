@@ -15,9 +15,9 @@
     <input type="text" name="state" value="<%= @store.state %>">
   </div>
   <div class="form-group">
-    <label for="store_ids[]">Which brands does this store carry?</label><br>
+    <label for="brand_ids[]" class="active">Which brands does this store carry?</label><br>
     <% @brands.each() do |brand| %>
-    <input type="checkbox" name = "brand_ids[]" value="<%= brand.id()%>"> <%= brand.name() %><br>
+      <input type="checkbox" name = "brand_ids[]" value="<%= brand.id()%>" <%= 'checked' if brand.stores.include?(@store) %> > <%= brand.name() %><br>
     <% end %>
   </div>
   <button type='submit'>Submit</button>

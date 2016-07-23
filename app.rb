@@ -55,6 +55,15 @@ patch('/brands/:id') do
   erb(:brand)
 end
 
+delete('/brands/:id') do
+  @brand = Brand.find(params.fetch('id').to_i())
+  if @brand.destroy()
+    redirect("/brands")
+  else
+    erb(:brand)
+  end
+end
+
 post('/stores/new') do
   name = params['name']
   city = params['city']
@@ -91,4 +100,13 @@ patch('/stores/:id') do
   brand_ids = params['brand_ids']
   @store.update({:name => name, :city => city, :state => state, :brand_ids => brand_ids})
   erb(:store)
+end
+
+delete('/stores/:id') do
+  @store = Store.find(params.fetch('id').to_i())
+  if @store.destroy()
+    redirect("/stores")
+  else
+    erb(:store)
+  end
 end

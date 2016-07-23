@@ -7,12 +7,13 @@
   color: #ff9933;
 }
 
-.row {
-  margin-bottom: 20px;
+h1 {
+  color: #ff9933;
 }
 
-.row1 h2 {
-  Color: #4cae4c;
+.row {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 .footer {

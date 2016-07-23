@@ -1,16 +1,29 @@
 <h1> <%= @brand.name %> </h1>
-
-<h2> Stores that carry this brand: </h2>
-  <% if @brand.stores().any?() %>
-  <ul>
-  <% @brand.stores.each do |store| %>
-  <li><%= store.name() %>, <%= store.city() %>, <%= store.state() %></li>
-  <% end %>
-  </ul>
-  <% else %>
-  <p> This brand is not currently carried by any stores </p>
-  <% end %>
-
-<a class="btn btn-warning btn-lg" href="/brands/<%= @brand.id() %>/edit">Edit <%= @brand.name %></a>
-<a class="btn btn-danger btn-lg" href="/brands">Delete <%= @brand.name %></a><br><br>
-<a class="btn btn-default btn-lg" href="/brands">Back to Brands</a>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Stores that carry this brand: </h2>
+      <% if @brand.stores().any?() %>
+      <ul>
+      <% @brand.stores.each do |store| %>
+      <li><%= store.name() %>, <%= store.city() %>, <%= store.state() %></li>
+      <% end %>
+      </ul>
+      <% else %>
+      <p> This brand is not currently carried by any stores </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <p><a class="btn btn-warning btn-lg" href="/brands/<%= @brand.id() %>/edit">Edit <%= @brand.name %></a></p>
+    </div>
+    <div class="col-sm-4">
+      <form action="/brands/<%= @brand.id() %>" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit" class="btn btn-danger btn-lg">Delete <%= @brand.name %></button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <p><a class="btn btn-default btn-lg" href="/brands">Back to Brands</a></p>
+    </div>
+  </div>
