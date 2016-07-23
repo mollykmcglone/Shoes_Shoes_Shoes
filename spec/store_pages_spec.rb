@@ -3,7 +3,7 @@ require('spec_helper')
 describe('the store route', :type => :feature) do
   it "takes user to the main store page" do
     visit '/'
-    click_link 'Go to Stores'
+    click_link 'Your Stores'
     expect(page).to have_content("You don't have any stores yet.")
   end
 
@@ -21,7 +21,7 @@ describe('the store route', :type => :feature) do
     brand = Brand.create({:name => "Molly's Moccasins"})
     visit '/stores'
     click_link "Shoe Crazy"
-    click_link "Edit Shoe Crazy"
+    click_link "Edit"
     fill_in 'name', :with => "Super Shoe Crazy World"
     click_button 'Submit'
     expect(page).to have_content("Super Shoe Crazy World")
@@ -32,7 +32,7 @@ describe('the store route', :type => :feature) do
     brand = Brand.create({:name => "Molly's Moccasins"})
     visit '/stores'
     click_link "Shoe Crazy"
-    click_link "Edit Shoe Crazy"
+    click_link "Edit"
     check 'brand_ids[]'
     click_button 'Submit'
     expect(page).to have_content("Shoe Crazy")
@@ -42,7 +42,7 @@ describe('the store route', :type => :feature) do
     store = Store.create({:name => "Shoe Crazy"})
     visit '/stores'
     click_link "Shoe Crazy"
-    click_button "Delete Shoe Crazy"
+    click_button "Delete"
     expect(page).to have_no_content("Shoe Crazy")
   end
 end
