@@ -16,13 +16,14 @@ h1 {
 
 h2 {
   font-size: 3em;
+  color: #ff9933;
+}
+
+#black {
+  color: black;
 }
 
 .center {
-  text-align: center;
-}
-
-.first {
   text-align: center;
 }
 
@@ -44,9 +45,9 @@ h2 {
   font-size: 1.25em;
 }
 
-.title p {
+.place {
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
   font-style: italic;
 }
 
