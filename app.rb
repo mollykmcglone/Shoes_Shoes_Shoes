@@ -30,7 +30,7 @@ post('/brands/new') do
   if @new_brand.save()
     redirect("/brands/".concat(@new_brand.id().to_s()))
   else
-    erb(:errors)
+    erb(:errors_brands)
   end
 end
 
@@ -52,7 +52,11 @@ patch('/brands/:id') do
   name = params['name']
   store_ids = params['store_ids']
   @brand.update({:name => name, :store_ids => store_ids})
-  erb(:brand)
+  if @brand.save()
+    redirect("/brands/".concat(@brand.id().to_s()))
+  else
+    erb(:errors_brands)
+  end
 end
 
 delete('/brands/:id') do
@@ -75,7 +79,7 @@ post('/stores/new') do
   if @new_store.save()
     redirect("/stores/".concat(@new_store.id().to_s()))
   else
-    erb(:errors)
+    erb(:errors_stores)
   end
 end
 
@@ -99,7 +103,11 @@ patch('/stores/:id') do
   state = params['state']
   brand_ids = params['brand_ids']
   @store.update({:name => name, :city => city, :state => state, :brand_ids => brand_ids})
-  erb(:store)
+  if @store.save()
+    redirect("/stores/".concat(@store.id().to_s()))
+  else
+    erb(:errors_stores)
+  end
 end
 
 delete('/stores/:id') do
